@@ -2,9 +2,12 @@ package com.himanshu.crud.controllers;
 
 import com.himanshu.crud.entities.Himanshu;
 import com.himanshu.crud.services.Studentservice;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 public class Studentcontroller {
@@ -25,6 +28,11 @@ public class Studentcontroller {
         System.out.println("========================");
         serv.create(stud);
         return "Data Created Succesfully";
+    }
+
+    @GetMapping("/get")
+    public List<Himanshu> show() {
+        return serv.show();
     }
 
 }
